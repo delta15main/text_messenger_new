@@ -51,6 +51,7 @@ namespace svr {
     using namespace usr;
     class Server {
     private:
+        int a;
         int server_socket;
         struct sockaddr_in server_addr;
         int active_user;

@@ -20,7 +20,7 @@
 namespace svr {
     using namespace usr;
 
-    Server::Server(int port) {
+    Server::Server(int port) : a(1) {
         server_socket = socket(AF_INET, SOCK_STREAM, 0);
 
         memset(&server_addr, 0, sizeof(server_addr));
@@ -108,7 +108,8 @@ namespace svr {
 
     void Server::weather() {
         while (true) {
-            std::this_thread::sleep_for(std::chrono::seconds(60));
+            std::this_thread::sleep_for(std::chrono::seconds(a));
+            a++;
             if (cit.empty()) continue;
             
             std::string weath = this->make_weath();
